@@ -7,6 +7,7 @@ const errorHandler = require('./middleware/error');
 
 //routes
 const userRoute = require('./routes/user');
+const productRoute = require('./routes/products');
 
 //init express
 const app = express();
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //routes
 app.use('/api/v1/users', userRoute);
+app.use('/api/v1/products', productRoute);
 app.use(errorHandler);
 
 //start server

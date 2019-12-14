@@ -8,11 +8,15 @@ exports.createUser = catchAsync(async (req, res) => {
       email: req.body.email,
       password: req.body.password
     });
+
     res.status(201).json({
       success: true,
       data: newUser
     });
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      status: false,
+      message: error.message
+    });
   }
 });
